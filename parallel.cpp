@@ -62,16 +62,16 @@ int main(int argc, char *argv[]) {
             return FAILURE;
     }
 
-    /* 1.  divide the work load to nthreads */
-	/* 1.1 allocate variables to hold the information about work load */
+    /*   divide the work load to nthreads */
+        /*  allocate variables to hold the information about work load */
 	long long *higher = new long long[nthreads];
 	long long *lower  = new long long[nthreads];
 
-	/* 1.2 compute the amount of work load for each thread */
+	/*  compute the amount of work load for each thread */
 	long long load = number / nthreads;
 	if (load == 0ll) load = 1ll;
 
-	/* 1.3 divide the work load (from high to low) */
+	/*  divide the work load (from high to low) */
 	higher[0] = number - 1ll;
 	for (int i = 0; i < nthreads; i ++) {
 		lower[i] = higher[i] - load;
